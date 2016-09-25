@@ -7,20 +7,20 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'SwiftyAppearance'
-  s.version          = '1.0.0'
-  s.summary          = 'Declarative approach to UIAppearance.'
+  s.name                    = 'SwiftyAppearance'
+  s.version                 = '0.0.1'
+  s.summary                 = 'Declarative approach to UIAppearance.'
 
-  s.description      = <<-DESC
+  s.description             = <<-DESC
 Declarative approach to UIAppearance.
-                       DESC
+                                 DESC
 
-  s.homepage         = 'https://github.com/victor-pavlychko/SwiftyAppearance'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Victor Pavlychko' => 'victor.pavlychko@gmail.com' }
-  s.source           = { :git => 'https://github.com/victor-pavlychko/SwiftyAppearance.git', :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/victorpavlychko'
-  s.ios.deployment_target = '9.0'
-  s.source_files = 'SwiftyAppearance/**/*'
-  s.frameworks = 'UIKit'
+  s.homepage                = 'https://github.com/victor-pavlychko/SwiftyAppearance'
+  s.license                 = { :type => 'MIT', :file => 'LICENSE' }
+  s.author                  = { 'Victor Pavlychko' => 'victor.pavlychko@gmail.com' }
+  s.source                  = { :git => 'https://github.com/victor-pavlychko/SwiftyAppearance.git', :tag => s.version.to_s }
+  s.social_media_url        = 'https://twitter.com/victorpavlychko'
+  s.ios.deployment_target   = '9.0'
+  s.source_files            = 'SwiftyAppearance/**/*'
+  s.frameworks              = 'UIKit'
 end

@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        appearance(inAny: [AppViewController.self, AppTabBarController.self]) {
-            UIView.appearance {
+        appearance(inAny: [AppViewController.self, AppTabBarController.self, AppNavigationController.self]) {
+            AppBackgroundView.appearance {
                 $0.tintColor = .magenta
             }
             UITabBar.appearance {
@@ -27,8 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 $0.barTintColor = .red
                 $0.tintColor = .white
             }
+            UINavigationBar.appearance {
+                $0.tintColor = .red
+            }
         }
-
+        
         FirstViewController.appearance {
             UILabel.appearance {
                 $0.textColor = .blue
