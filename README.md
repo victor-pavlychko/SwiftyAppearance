@@ -8,33 +8,33 @@
 
 ## Why UIAppearance
 
-UIAppearance allows to set up global application look and feed in a single centralized location instead of
+`UIAppearance` allows to set up global application look and feel in a single centralized location instead of
 spreading bits of design across different classes, xibs and storyboards.
 
 SwiftyAppearance adds a little bit of style to this approach.
 
 ## Example
 
-To run the example project, clone the repo, and run `SwiftAppearanceDemo` app:
+To run the example project, clone the repo and run `SwiftAppearanceDemo` app:
 
-![Screenshot](https://raw.githubusercontent.com/victor-pavlychko/SwiftyAppearance/master/Screenshots/first.png)
-![Screenshot](https://raw.githubusercontent.com/victor-pavlychko/SwiftyAppearance/master/Screenshots/second.png)
+<img src="https://raw.githubusercontent.com/victor-pavlychko/SwiftyAppearance/master/Screenshots/first.png" width="320px">
+<img src="https://raw.githubusercontent.com/victor-pavlychko/SwiftyAppearance/master/Screenshots/second.png" width="320px">
 
 ## Brief Walkthrough
 
-To achieve best results with UIAppearance, avoid inheriting from UIKit base classes directly and insert custom
+To achieve best results with `UIAppearance`, avoid inheriting from UIKit base classes directly and insert custom
 base classes instead. Consider class hierarchy like this: `UIViewController` → `AppViewController` → `UserListViewController`.
-Doing so allows you to apply appearance to all view controllers across the app while leaving third-party screens
-like SMS or Mail composers intact.
+Doing so allows applying appearance to all view controllers across the app while leaving third-party screens
+like SMS or mail composers intact.
 
-Also it is useful to create custom `BackgroundView` class to be used instead of `UIView` as a root view for most
-view vontrollers. This allows to customize view controller backgrounds globally and does not affect other views. 
+Also it is useful to create custom "background view" class to be used instead of `UIView` as a root view for most
+view controllers. This allows to customize view controller backgrounds globally and does not affect other views. 
 
 Demo application defines following root classes for global styling:
-* AppViewController
-* AppTabBarController
-* AppNavigationController
-* AppBackgroundView
+* `AppViewController`
+* `AppTabBarController`
+* `AppNavigationController`
+* `AppBackgroundView`
 
 ```swift
 appearance(inAny: [AppViewController.self, AppTabBarController.self, AppNavigationController.self]) {
@@ -47,8 +47,8 @@ appearance(inAny: [AppViewController.self, AppTabBarController.self, AppNavigati
 ```
 
 Also we define two navigation controller subclasses for different screens:
-* FirstNavigationController
-* SecondNavigationController
+* `FirstNavigationController`
+* `SecondNavigationController`
 
 ```swift
 FirstNavigationController.appearance {
@@ -70,7 +70,7 @@ SecondNavigationController.appearance {
 }
 ```
 
-And finslly we customize our view controllers
+And finally we customize our view controllers:
 
 ```swift
 FirstViewController.appearance {
