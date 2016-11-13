@@ -8,11 +8,13 @@
 
 Pod::Spec.new do |s|
   s.name                    = 'SwiftyAppearance'
-  s.version                 = '0.0.1'
+  s.version                 = '1.0.0'
   s.summary                 = 'Declarative approach to UIAppearance.'
 
   s.description             = <<-DESC
-Declarative approach to UIAppearance.
+UIAppearance allows to set up global application look and feed in a single centralized location instead of
+spreading bits of design across different classes, xibs and storyboards.
+SwiftyAppearance adds a little bit of style to this approach.
                                  DESC
 
   s.homepage                = 'https://github.com/victor-pavlychko/SwiftyAppearance'
