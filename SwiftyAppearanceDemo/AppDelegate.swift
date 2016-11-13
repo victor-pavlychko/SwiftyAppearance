@@ -17,30 +17,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         appearance(inAny: [AppViewController.self, AppTabBarController.self, AppNavigationController.self]) {
-            AppBackgroundView.appearance {
-                $0.tintColor = .magenta
-            }
             UITabBar.appearance {
                 $0.barStyle = .black
-                $0.barTintColor = .red
-                $0.tintColor = .white
+                $0.barTintColor = UIColor(rgb: 0x2c3e50)
+                $0.tintColor = UIColor(rgb: 0xecf0f1)
             }
+        }
+        
+        FirstNavigationController.appearance {
             UINavigationBar.appearance {
-                $0.tintColor = .red
+                $0.barStyle = .black
+                $0.barTintColor = UIColor(rgb: 0x2980b9)
+                $0.tintColor = UIColor(rgb: 0xecf0f1)
             }
         }
         
         FirstViewController.appearance {
+            AppBackgroundView.appearance {
+                $0.backgroundColor = UIColor(rgb: 0xecf0f1)
+                $0.tintColor = UIColor(rgb: 0x34495e)
+            }
             UILabel.appearance {
-                $0.textColor = .blue
+                $0.textColor = UIColor(rgb: 0x2c3e50)
+            }
+        }
+
+        SecondNavigationController.appearance {
+            UINavigationBar.appearance {
+                $0.barStyle = .`default`
+                $0.barTintColor = UIColor(rgb: 0xf39c12)
+                $0.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(rgb: 0xc0392b)]
             }
         }
 
         SecondViewController.appearance {
+            AppBackgroundView.appearance {
+                $0.backgroundColor = UIColor(rgb: 0xf1c40f)
+            }
             UILabel.appearance {
-                $0.textColor = .green
+                $0.textColor = UIColor(rgb: 0xe67e22)
             }
         }
         

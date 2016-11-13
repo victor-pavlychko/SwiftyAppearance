@@ -15,6 +15,9 @@
 		57B3DEC51D8F3A6300699882 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57B3DEC31D8F3A6300699882 /* LaunchScreen.storyboard */; };
 		57F0B3791D9877D80012DECF /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0B3781D9877D80012DECF /* AppNavigationController.swift */; };
 		57F0B37B1D9879910012DECF /* AppBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F0B37A1D9879910012DECF /* AppBackgroundView.swift */; };
+		57F983151DD8A0D700C3276E /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F983141DD8A0D700C3276E /* UIColorExtensions.swift */; };
+		57F983171DD8A42400C3276E /* FirstNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F983161DD8A42400C3276E /* FirstNavigationController.swift */; };
+		57F983191DD8A43100C3276E /* SecondNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F983181DD8A43100C3276E /* SecondNavigationController.swift */; };
 		57FED3761D8F3A9F008DB72E /* SwiftyAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 57FED3741D8F3A9F008DB72E /* SwiftyAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		57FED3791D8F3A9F008DB72E /* SwiftyAppearance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FED3721D8F3A9F008DB72E /* SwiftyAppearance.framework */; };
 		57FED37A1D8F3A9F008DB72E /* SwiftyAppearance.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57FED3721D8F3A9F008DB72E /* SwiftyAppearance.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -59,6 +62,9 @@
 		57B3DEC61D8F3A6300699882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57F0B3781D9877D80012DECF /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		57F0B37A1D9879910012DECF /* AppBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBackgroundView.swift; sourceTree = "<group>"; };
+		57F983141DD8A0D700C3276E /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		57F983161DD8A42400C3276E /* FirstNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstNavigationController.swift; sourceTree = "<group>"; };
+		57F983181DD8A43100C3276E /* SecondNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondNavigationController.swift; sourceTree = "<group>"; };
 		57FED3721D8F3A9F008DB72E /* SwiftyAppearance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyAppearance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57FED3741D8F3A9F008DB72E /* SwiftyAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyAppearance.h; sourceTree = "<group>"; };
 		57FED3751D8F3A9F008DB72E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,7 +120,9 @@
 			children = (
 				57FED3831D8F3B4E008DB72E /* Support */,
 				57B3DEB81D8F3A6300699882 /* AppDelegate.swift */,
+				57F983161DD8A42400C3276E /* FirstNavigationController.swift */,
 				57B3DEBA1D8F3A6300699882 /* FirstViewController.swift */,
+				57F983181DD8A43100C3276E /* SecondNavigationController.swift */,
 				57B3DEBC1D8F3A6300699882 /* SecondViewController.swift */,
 				57B3DEBE1D8F3A6300699882 /* Main.storyboard */,
 				57B3DEC11D8F3A6300699882 /* Assets.xcassets */,
@@ -142,6 +150,7 @@
 				57F0B3781D9877D80012DECF /* AppNavigationController.swift */,
 				57FED3841D8F3B4E008DB72E /* AppTabBarController.swift */,
 				57FED3851D8F3B4E008DB72E /* AppViewController.swift */,
+				57F983141DD8A0D700C3276E /* UIColorExtensions.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -275,10 +284,13 @@
 				57FED3871D8F3B4E008DB72E /* AppViewController.swift in Sources */,
 				57B3DEBD1D8F3A6300699882 /* SecondViewController.swift in Sources */,
 				57FED3861D8F3B4E008DB72E /* AppTabBarController.swift in Sources */,
+				57F983171DD8A42400C3276E /* FirstNavigationController.swift in Sources */,
 				57F0B37B1D9879910012DECF /* AppBackgroundView.swift in Sources */,
 				57F0B3791D9877D80012DECF /* AppNavigationController.swift in Sources */,
+				57F983191DD8A43100C3276E /* SecondNavigationController.swift in Sources */,
 				57B3DEB91D8F3A6300699882 /* AppDelegate.swift in Sources */,
 				57B3DEBB1D8F3A6300699882 /* FirstViewController.swift in Sources */,
+				57F983151DD8A0D700C3276E /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
