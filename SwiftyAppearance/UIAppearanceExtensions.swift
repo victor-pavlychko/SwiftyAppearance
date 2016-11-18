@@ -18,6 +18,16 @@ public func appearance(for traits: UITraitCollection, _ block: () -> Void) {
     AppearanceScope.main.pop()
 }
 
+/// Nested appearance scope for specified container type
+///
+/// - parameter containerType: container type
+/// - parameter block:         appearance code block
+public func appearance(in containerType: UIAppearanceContainer.Type, _ block: () -> Void) {
+    AppearanceScope.main.push(containerType)
+    block()
+    AppearanceScope.main.pop()
+}
+
 /// Nested appearance scope for specified container chain
 ///
 /// - parameter containerTypes: container chain
@@ -34,7 +44,7 @@ public func appearance(inChain containerTypes: [UIAppearanceContainer.Type], _ b
 /// - parameter block:          appearance code block
 public func appearance(inAny containerTypes: [UIAppearanceContainer.Type], _ block: () -> Void) {
     containerTypes.forEach {
-        appearance(inChain: [$0], block)
+        appearance(in: $0, block)
     }
 }
 
@@ -48,7 +58,7 @@ public extension UIAppearance where Self: UIAppearanceContainer {
     public static func appearance(_ block: (_ proxy: Self) -> Void) {
         let context = AppearanceScope.main.context
         let proxy = appearance(context: context)
-        AppearanceScope.main.push([Self.self])
+        AppearanceScope.main.push(self)
         block(proxy)
         AppearanceScope.main.pop()
     }
@@ -60,7 +70,7 @@ public extension UIAppearanceContainer {
     ///
     /// - parameter block: appearance code block for current container
     public static func appearance(_ block: () -> Void) {
-        AppearanceScope.main.push([Self.self])
+        AppearanceScope.main.push(self)
         block()
         AppearanceScope.main.pop()
     }
@@ -75,7 +85,13 @@ public extension UIAppearance {
     public static func appearance(_ block: (_ proxy: Self) -> Void) {
         let context = AppearanceScope.main.context
         let proxy = appearance(context: context)
-        block(proxy)
+        if let selfContainerType = self as? UIAppearanceContainer.Type {
+            AppearanceScope.main.push(selfContainerType)
+            block(proxy)
+            AppearanceScope.main.pop()
+        } else {
+            block(proxy)
+        }
     }
     
     /// Configure appearance for `Self` type and start
@@ -91,7 +107,19 @@ public extension UIAppearance {
     }
     
     /// Configure appearance for `Self` type and start
-    /// nested appearance scope for `Self` container inside specofoed container chain
+    /// nested appearance scope for `Self` container inside specified container type
+    ///
+    /// - parameter containerType: container type
+    /// - parameter block:         appearance code block for current container
+    /// - parameter proxy:         appearance proxy to configure
+    public static func appearance(in containerType: UIAppearanceContainer.Type, _ block: (_ proxy: Self) -> Void) {
+        AppearanceScope.main.push(containerType)
+        appearance(block)
+        AppearanceScope.main.pop()
+    }
+    
+    /// Configure appearance for `Self` type and start
+    /// nested appearance scope for `Self` container inside specified container chain
     ///
     /// - parameter containerTypes: container chain
     /// - parameter block:          appearance code block for current container
@@ -103,14 +131,14 @@ public extension UIAppearance {
     }
     
     /// Configure appearance for `Self` type and start
-    /// nested appearance scope for `Self` container inside any of specofied containers
+    /// nested appearance scope for `Self` container inside any of specified containers
     ///
     /// - parameter containerTypes: list of containers
     /// - parameter block:          appearance code block for current container
     /// - parameter proxy:          appearance proxy to configure
     public static func appearance(inAny containerTypes: [UIAppearanceContainer.Type], _ block: (_ proxy: Self) -> Void) {
         containerTypes.forEach {
-            appearance(inChain: [$0], block)
+            appearance(in: $0, block)
         }
     }
 }

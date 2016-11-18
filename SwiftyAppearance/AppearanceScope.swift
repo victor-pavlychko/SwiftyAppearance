@@ -25,6 +25,11 @@ struct AppearanceScope {
     private(set) var context = Context()
     private var stack: [StackItem] = []
     
+    mutating func push(_ containerType: UIAppearanceContainer.Type) {
+        context.containerTypes.append(containerType)
+        stack.append(.containerTypes(1))
+    }
+    
     mutating func push(_ containerTypes: [UIAppearanceContainer.Type]) {
         context.containerTypes.append(contentsOf: containerTypes)
         stack.append(.containerTypes(containerTypes.count))
