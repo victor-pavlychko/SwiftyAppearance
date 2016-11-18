@@ -6,9 +6,7 @@
 [![Swift: 3.0](https://img.shields.io/badge/swift-3.0-orange.svg?style=flat)](https://github.com/victor-pavlychko/SwiftyAppearance)
 [![Platform: iOS](https://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://github.com/victor-pavlychko/SwiftyAppearance)
 
-## Why UIAppearance
-
-`UIAppearance` allows to set up global application look and feel in a single centralized location instead of
+`UIAppearance` allows to configure global application look and feel in a single centralized location instead of
 spreading bits of design across different classes, xibs and storyboards.
 
 SwiftyAppearance adds a little bit of style to this approach.
@@ -24,7 +22,7 @@ To run the example project, clone the repo and run `SwiftAppearanceDemo` app:
 
 To achieve best results with `UIAppearance`, avoid inheriting from UIKit base classes directly and insert custom
 base classes instead. Consider class hierarchy like this: `UIViewController` → `AppViewController` → `UserListViewController`.
-Doing so allows applying appearance to all view controllers across the app while leaving third-party screens
+Doing so allows applying appearance to all view controllers across the app while leaving third‐party screens
 like SMS or mail composers intact.
 
 Also it is useful to create custom "background view" class to be used instead of `UIView` as a root view for most
@@ -94,6 +92,41 @@ SecondViewController.appearance {
     }
 }
 ```
+
+## API Overview
+
+SwiftyAppearance defines a set of functions to handle nested appearance scopes. Each scope defines more specific
+case — either by adding nested container, or by adding some traits.
+
+Free functions and UIAppearanceContainer Extensions just introduce nested scopes while UIAppearance Extensions also
+provide proxy object to configure its properties.
+
+### Free Functions
+
+* `func appearance(for traits: UITraitCollection, _ block: () -> Void)` — adds traits from the collection to the scope
+* `func appearance(in containerType: UIAppearanceContainer.Type, _ block: () -> Void)` — adds nested container to the scope
+* `func appearance(inChain containerTypes: [UIAppearanceContainer.Type], _ block: () -> Void)` — adds chain of nested containers to the scope
+* `func appearance(inAny containerTypes: [UIAppearanceContainer.Type], _ block: () -> Void)` — defines a set of nested scopes for each provided container
+
+### UIAppearanceContainer Extensions
+
+* `static func appearance(_ block: () -> Void)` — adds nested container to the scope, this is equivalent to one of free functions
+
+### UIAppearance Extensions
+
+This group of functions first extends scopes similar to what free functions do, then provides appearance proxy for `Self` class and finally defines
+new scope adding `Self` as a container when applicable.
+
+* `static func appearance(_ block: (_ proxy: Self) -> Void)` — provides appearance proxy for class, then adds current class as a container 
+    if applicable
+* `static func appearance(for traits: UITraitCollection, _ block: (_ proxy: Self) -> Void)` — adds traits from the collection to the scope,
+    provides appearance proxy for class, then adds current class as a container if applicable
+* `static func appearance(in containerType: UIAppearanceContainer.Type, _ block: (_ proxy: Self) -> Void)` — adds nested container to the scope,
+    provides appearance proxy for class, then adds current class as a container if applicable
+* `static func appearance(inChain containerTypes: [UIAppearanceContainer.Type], _ block: (_ proxy: Self) -> Void)` — adds chain of nested
+    containers to the scope, provides appearance proxy for class, then adds current class as a container if applicable
+* `static func appearance(inAny containerTypes: [UIAppearanceContainer.Type], _ block: (_ proxy: Self) -> Void)` — defines a set of nested scopes
+    for each provided container, provides appearance proxy for class, then adds current class as a container if applicable
 
 ## Installation 
 
