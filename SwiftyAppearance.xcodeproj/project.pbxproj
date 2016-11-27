@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57900E091DEB5F740067EF81 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57900E081DEB5F740067EF81 /* UIViewExtensions.swift */; };
 		57B3DEB91D8F3A6300699882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B3DEB81D8F3A6300699882 /* AppDelegate.swift */; };
 		57B3DEBB1D8F3A6300699882 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B3DEBA1D8F3A6300699882 /* FirstViewController.swift */; };
 		57B3DEBD1D8F3A6300699882 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B3DEBC1D8F3A6300699882 /* SecondViewController.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		57900E081DEB5F740067EF81 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		57B3DEB51D8F3A6300699882 /* SwiftyAppearanceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyAppearanceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B3DEB81D8F3A6300699882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57B3DEBA1D8F3A6300699882 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				57FED37F1D8F3B48008DB72E /* AppearanceScope.swift */,
 				57FED3801D8F3B48008DB72E /* UIAppearanceExtensions.swift */,
+				57900E081DEB5F740067EF81 /* UIViewExtensions.swift */,
 				57FED3741D8F3A9F008DB72E /* SwiftyAppearance.h */,
 				57FED3751D8F3A9F008DB72E /* Info.plist */,
 			);
@@ -299,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57FED3811D8F3B48008DB72E /* AppearanceScope.swift in Sources */,
+				57900E091DEB5F740067EF81 /* UIViewExtensions.swift in Sources */,
 				57FED3821D8F3B48008DB72E /* UIAppearanceExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
