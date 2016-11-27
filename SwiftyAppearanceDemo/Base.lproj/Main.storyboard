@@ -59,6 +59,9 @@
                                 <segment title="First"/>
                                 <segment title="Second"/>
                             </segments>
+                            <connections>
+                                <action selector="changeAppearanceWithSender:" destination="9pv-A4-QxB" eventType="valueChanged" id="oLs-Mf-aKB"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                 </viewController>
