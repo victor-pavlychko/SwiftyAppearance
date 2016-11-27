@@ -54,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		57900E081DEB5F740067EF81 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		57900E0A1DEB5FDA0067EF81 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		57B3DEB51D8F3A6300699882 /* SwiftyAppearanceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyAppearanceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B3DEB81D8F3A6300699882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57B3DEBA1D8F3A6300699882 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -161,8 +162,9 @@
 		57FED3881D8F3BC5008DB72E /* Meta */ = {
 			isa = PBXGroup;
 			children = (
-				57FED3891D8F3BD5008DB72E /* LICENSE */,
 				57FED38A1D8F3BD5008DB72E /* README.md */,
+				57900E0A1DEB5FDA0067EF81 /* CHANGELOG.md */,
+				57FED3891D8F3BD5008DB72E /* LICENSE */,
 				57FED38B1D8F3BD5008DB72E /* SwiftyAppearance.podspec */,
 			);
 			name = Meta;
