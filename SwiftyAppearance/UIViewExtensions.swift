@@ -16,6 +16,7 @@ public extension UIView {
         removeConstraints(constraints)
         for subview in subviews {
             subview.removeFromSuperview()
+            subview.refreshSubviewAppearance()
             addSubview(subview)
         }
         addConstraints(constraints)
