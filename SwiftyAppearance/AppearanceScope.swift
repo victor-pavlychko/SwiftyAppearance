@@ -10,7 +10,7 @@ import Foundation
 
 struct AppearanceScope {
     
-    public static var main = AppearanceScope()
+    static var main = AppearanceScope()
     
     struct Context {
         var containerTypes: [UIAppearanceContainer.Type] = []
@@ -50,18 +50,25 @@ struct AppearanceScope {
     }
 }
 
+extension AppearanceScope.Context {
+    
+    func sortedContainerTypes() -> [UIAppearanceContainer.Type] {
+        return containerTypes.filter { $0 is UIViewController.Type } + containerTypes.filter { !($0 is UIViewController.Type) }
+    }
+}
+
 extension UIAppearance {
     
     static func appearance(context: AppearanceScope.Context) -> Self {
         if context.traits.isEmpty {
             return context.containerTypes.count > 0
-                ? appearance(whenContainedInInstancesOf: context.containerTypes)
+                ? appearance(whenContainedInInstancesOf: context.sortedContainerTypes())
                 : appearance()
         }
         
         let traits = UITraitCollection(traitsFrom: context.traits)
         return context.containerTypes.count > 0
-            ? appearance(for: traits, whenContainedInInstancesOf: context.containerTypes)
+            ? appearance(for: traits, whenContainedInInstancesOf: context.sortedContainerTypes())
             : appearance(for: traits)
     }
 }
