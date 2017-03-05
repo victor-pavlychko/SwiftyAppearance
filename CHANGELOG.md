@@ -3,7 +3,7 @@
 ## [Version 1.0.2](https://github.com/victor-pavlychko/SwiftyAppearance/releases/tag/1.0.2)
 *Released on 2016-11-27.*
 
-- added `UIView.refreshSubviewAppearance` and `UIApplication.refreshAppearance` methods to reload app look after changing `UIApperance` (useful for theme support)
+- added `UIView.refreshSubviewAppearance` and `UIApplication.refreshApplicationAppearance` methods to reload app look after changing `UIApperance` (useful for theme support)
 
 ## [Version 1.0.1](https://github.com/victor-pavlychko/SwiftyAppearance/releases/tag/1.0.1)
 *Released on 2016-11-18.*
