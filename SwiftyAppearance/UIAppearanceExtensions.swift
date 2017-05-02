@@ -48,6 +48,18 @@ public func appearance(inAny containerTypes: [UIAppearanceContainer.Type], _ blo
     }
 }
 
+public extension UIAppearanceContainer {
+    
+    /// Nested appearance scope for `Self` container
+    ///
+    /// - parameter block: appearance code block for current container
+    public static func appearance(_ block: () -> Void) {
+        AppearanceScope.main.push(self)
+        block()
+        AppearanceScope.main.pop()
+    }
+}
+
 public extension UIAppearance where Self: UIAppearanceContainer {
     
     /// Configure appearance for `Self` type and start
@@ -64,21 +76,10 @@ public extension UIAppearance where Self: UIAppearanceContainer {
     }
 }
 
-public extension UIAppearanceContainer {
-    
-    /// Nested appearance scope for `Self` container
-    ///
-    /// - parameter block: appearance code block for current container
-    public static func appearance(_ block: () -> Void) {
-        AppearanceScope.main.push(self)
-        block()
-        AppearanceScope.main.pop()
-    }
-}
-
 public extension UIAppearance {
 
-    /// Configure appearance for `Self` type
+    /// Configure appearance for `Self` type and start
+    /// nested appearance scope for `Self` container if applicable
     ///
     /// - parameter block: appearance code block for current container
     /// - parameter proxy: appearance proxy to configure

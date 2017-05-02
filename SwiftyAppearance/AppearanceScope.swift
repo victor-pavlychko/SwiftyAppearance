@@ -6,68 +6,72 @@
 //  Copyright © 2016 address.wtf. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-struct AppearanceScope {
+internal struct AppearanceScope {
     
-    static var main = AppearanceScope()
+    internal static var main = AppearanceScope()
     
-    struct Context {
+    internal struct Context {
         var containerTypes: [UIAppearanceContainer.Type] = []
         var traits: [UITraitCollection] = []
     }
     
-    private enum StackItem {
+    private enum UnwindStackItem {
         case containerTypes(Int)
         case traits
     }
 
-    private(set) var context = Context()
-    private var stack: [StackItem] = []
+    private var _context = Context()
+    private var _unwindStack: [UnwindStackItem] = []
     
-    mutating func push(_ containerType: UIAppearanceContainer.Type) {
-        context.containerTypes.append(containerType)
-        stack.append(.containerTypes(1))
+    internal var context: Context {
+        return _context
     }
     
-    mutating func push(_ containerTypes: [UIAppearanceContainer.Type]) {
-        context.containerTypes.append(contentsOf: containerTypes)
-        stack.append(.containerTypes(containerTypes.count))
+    internal mutating func push(_ containerType: UIAppearanceContainer.Type) {
+        _context.containerTypes.append(containerType)
+        _unwindStack.append(.containerTypes(1))
     }
     
-    mutating func push(_ traits: UITraitCollection) {
-        context.traits.append(traits)
-        stack.append(.traits)
+    internal mutating func push(_ containerTypes: [UIAppearanceContainer.Type]) {
+        _context.containerTypes.append(contentsOf: containerTypes)
+        _unwindStack.append(.containerTypes(containerTypes.count))
     }
     
-    mutating func pop() {
-        switch stack.removeLast() {
-        case .containerTypes(let count):
-            context.containerTypes.removeLast(count)
+    internal mutating func push(_ traits: UITraitCollection) {
+        _context.traits.append(traits)
+        _unwindStack.append(.traits)
+    }
+    
+    internal mutating func pop() {
+        switch _unwindStack.removeLast() {
+        case let .containerTypes(count):
+            _context.containerTypes.removeLast(count)
         case .traits:
-            context.traits.removeLast()
+            _context.traits.removeLast()
         }
     }
 }
 
-extension AppearanceScope.Context {
+internal extension AppearanceScope.Context {
     
-    func sortedContainerTypes() -> [UIAppearanceContainer.Type] {
+    internal func sortedContainerTypes() -> [UIAppearanceContainer.Type] {
         return containerTypes.filter { $0 is UIViewController.Type } + containerTypes.filter { !($0 is UIViewController.Type) }
     }
 }
 
-extension UIAppearance {
+internal extension UIAppearance {
     
-    static func appearance(context: AppearanceScope.Context) -> Self {
-        if context.traits.isEmpty {
-            return context.containerTypes.count > 0
+    internal static func appearance(context: AppearanceScope.Context) -> Self {
+        guard !context.traits.isEmpty else {
+            return !context.containerTypes.isEmpty
                 ? appearance(whenContainedInInstancesOf: context.sortedContainerTypes())
                 : appearance()
         }
         
         let traits = UITraitCollection(traitsFrom: context.traits)
-        return context.containerTypes.count > 0
+        return !context.containerTypes.isEmpty
             ? appearance(for: traits, whenContainedInInstancesOf: context.sortedContainerTypes())
             : appearance(for: traits)
     }

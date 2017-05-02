@@ -1,5 +1,12 @@
 # SwiftyAppearance Change Log
 
+## [Version 1.1.0](https://github.com/victor-pavlychko/SwiftyAppearance/releases/tag/1.1.0)
+*Released on 2017-05-??.*
+
+- moved `UIView.refreshSubviewAppearance` to `UIWindow` where it belongs and renamed to `refreshAppearance`
+- renamed `UIApplication.refreshApplicationAppearance` to `refreshAppearance`
+= added `AppearanceView` for application theming
+
 ## [Version 1.0.2](https://github.com/victor-pavlychko/SwiftyAppearance/releases/tag/1.0.2)
 *Released on 2016-11-27.*
 
