@@ -54,25 +54,18 @@ internal struct AppearanceScope {
     }
 }
 
-internal extension AppearanceScope.Context {
-    
-    internal func sortedContainerTypes() -> [UIAppearanceContainer.Type] {
-        return containerTypes.filter { $0 is UIViewController.Type } + containerTypes.filter { !($0 is UIViewController.Type) }
-    }
-}
-
 internal extension UIAppearance {
     
     internal static func appearance(context: AppearanceScope.Context) -> Self {
         guard !context.traits.isEmpty else {
             return !context.containerTypes.isEmpty
-                ? appearance(whenContainedInInstancesOf: context.sortedContainerTypes())
+                ? appearance(whenContainedInInstancesOf: context.containerTypes.reversed())
                 : appearance()
         }
         
         let traits = UITraitCollection(traitsFrom: context.traits)
         return !context.containerTypes.isEmpty
-            ? appearance(for: traits, whenContainedInInstancesOf: context.sortedContainerTypes())
+            ? appearance(for: traits, whenContainedInInstancesOf: context.containerTypes.reversed())
             : appearance(for: traits)
     }
 }

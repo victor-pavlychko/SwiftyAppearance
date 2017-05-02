@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyAppearance
 
-class AppBackgroundView: UIView {
-}
+class AppBackgroundView: AppearanceView { }
+class AlternateBackgroundView: AppearanceView { }

@@ -7,31 +7,20 @@
 //
 
 import UIKit
+import SwiftyAppearance
 
 class FirstViewController: AppViewController {
     
     @IBAction func changeAppearance(sender: UISegmentedControl) {
-
+        guard let view = view as? AppearanceView else {
+            return
+        }
         switch sender.selectedSegmentIndex {
         case 0:
-            FirstNavigationController.appearance {
-                UINavigationBar.appearance {
-                    $0.barStyle = .black
-                    $0.barTintColor = UIColor(rgb: 0x2980b9)
-                    $0.tintColor = UIColor(rgb: 0xecf0f1)
-                }
-            }
+            view.setStyle(AppBackgroundView.self, duration: 0.25)
         default:
-            FirstNavigationController.appearance {
-                UINavigationBar.appearance {
-                    $0.barStyle = .black
-                    $0.barTintColor = UIColor(rgb: 0xc0392b)
-                    $0.tintColor = UIColor(rgb: 0xecf0f1)
-                }
-            }
+            view.setStyle(AlternateBackgroundView.self, duration: 0.25)
         }
-
-        UIApplication.shared.refreshAppearance()
     }
     
 }
