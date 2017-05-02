@@ -26,7 +26,7 @@ internal struct AppearanceScope {
         
         internal init(_ traitCollections: [UITraitCollection], _ containerTypes: [UIAppearanceContainer.Type]) {
             self.traitCollection = traitCollections.isEmpty ? nil : UITraitCollection(traitsFrom: traitCollections)
-            self.containerTypes = containerTypes.isEmpty ? nil : containerTypes
+            self.containerTypes = containerTypes.isEmpty ? nil : containerTypes.reversed()
         }
     }
     
@@ -38,7 +38,7 @@ internal struct AppearanceScope {
             case let .traitCollection(element):
                 traitCollections.append(element)
             case let .containerTypes(element):
-                containerTypes.insert(contentsOf: element, at: 0)
+                containerTypes.append(contentsOf: element)
             }
         }
         return Context(traitCollections, containerTypes)
