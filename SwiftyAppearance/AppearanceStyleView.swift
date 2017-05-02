@@ -9,18 +9,18 @@
 import UIKit
 
 /// <#Description#>
-open class AppearanceView: UIView {
+open class AppearanceStyleView: UIView {
 
     /// <#Description#>
-    public var style: AppearanceView.Type {
-        get { return object_getClass(self) as! AppearanceView.Type }
+    public var style: AppearanceStyleView.Type {
+        get { return object_getClass(self) as! AppearanceStyleView.Type }
         set { _setStyle(newValue) }
     }
     
     /// <#Description#>
     ///
     /// - Parameter type: <#type description#>
-    private func _setStyle(_ type: AppearanceView.Type) {
+    private func _setStyle(_ type: AppearanceStyleView.Type) {
         object_setClass(self, type)
         window?.refreshAppearance()
     }
@@ -30,7 +30,7 @@ open class AppearanceView: UIView {
     /// - Parameters:
     ///   - type: <#type description#>
     ///   - duration: <#duration description#>
-    public func setStyle(_ type: AppearanceView.Type, duration: TimeInterval) {
+    public func setStyle(_ type: AppearanceStyleView.Type, duration: TimeInterval) {
         object_setClass(self, type)
         window?.refreshAppearance(duration: duration)
     }

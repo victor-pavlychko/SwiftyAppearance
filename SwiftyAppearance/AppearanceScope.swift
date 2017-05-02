@@ -12,60 +12,67 @@ internal struct AppearanceScope {
     
     internal static var main = AppearanceScope()
     
-    internal struct Context {
-        var containerTypes: [UIAppearanceContainer.Type] = []
-        var traits: [UITraitCollection] = []
-    }
-    
-    private enum UnwindStackItem {
-        case containerTypes(Int)
-        case traits
+    private enum StackElement {
+        case traitCollection(UITraitCollection)
+        case containerTypes([UIAppearanceContainer.Type])
     }
 
-    private var _context = Context()
-    private var _unwindStack: [UnwindStackItem] = []
+    private var _stack: [StackElement] = []
+
+    internal struct Context {
+        
+        internal let traitCollection: UITraitCollection?
+        internal let containerTypes: [UIAppearanceContainer.Type]?
+        
+        internal init(_ traitCollections: [UITraitCollection], _ containerTypes: [UIAppearanceContainer.Type]) {
+            self.traitCollection = traitCollections.isEmpty ? nil : UITraitCollection(traitsFrom: traitCollections)
+            self.containerTypes = containerTypes.isEmpty ? nil : containerTypes
+        }
+    }
     
     internal var context: Context {
-        return _context
+        var traitCollections: [UITraitCollection] = []
+        var containerTypes: [UIAppearanceContainer.Type] = []
+        for element in _stack {
+            switch element {
+            case let .traitCollection(element):
+                traitCollections.append(element)
+            case let .containerTypes(element):
+                containerTypes.insert(contentsOf: element, at: 0)
+            }
+        }
+        return Context(traitCollections, containerTypes)
+    }
+    
+    internal mutating func push(_ traitCollection: UITraitCollection) {
+        _stack.append(.traitCollection(traitCollection))
     }
     
     internal mutating func push(_ containerType: UIAppearanceContainer.Type) {
-        _context.containerTypes.append(containerType)
-        _unwindStack.append(.containerTypes(1))
+        _stack.append(.containerTypes([containerType]))
     }
     
     internal mutating func push(_ containerTypes: [UIAppearanceContainer.Type]) {
-        _context.containerTypes.append(contentsOf: containerTypes)
-        _unwindStack.append(.containerTypes(containerTypes.count))
-    }
-    
-    internal mutating func push(_ traits: UITraitCollection) {
-        _context.traits.append(traits)
-        _unwindStack.append(.traits)
+        _stack.append(.containerTypes(containerTypes))
     }
     
     internal mutating func pop() {
-        switch _unwindStack.removeLast() {
-        case let .containerTypes(count):
-            _context.containerTypes.removeLast(count)
-        case .traits:
-            _context.traits.removeLast()
-        }
+        _stack.removeLast()
     }
 }
 
 internal extension UIAppearance {
     
     internal static func appearance(context: AppearanceScope.Context) -> Self {
-        guard !context.traits.isEmpty else {
-            return !context.containerTypes.isEmpty
-                ? appearance(whenContainedInInstancesOf: context.containerTypes.reversed())
-                : appearance()
+        switch (context.traitCollection, context.containerTypes) {
+        case let (.some(traitCollection), .some(containerTypes)):
+            return appearance(for: traitCollection, whenContainedInInstancesOf: containerTypes)
+        case let (.some(traitCollection), .none):
+            return appearance(for: traitCollection)
+        case let (.none, .some(containerTypes)):
+            return appearance(whenContainedInInstancesOf: containerTypes)
+        case (.none, .none):
+            return appearance()
         }
-        
-        let traits = UITraitCollection(traitsFrom: context.traits)
-        return !context.containerTypes.isEmpty
-            ? appearance(for: traits, whenContainedInInstancesOf: context.containerTypes.reversed())
-            : appearance(for: traits)
     }
 }

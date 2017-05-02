@@ -43,8 +43,8 @@ public func appearance(inChain containerTypes: [UIAppearanceContainer.Type], _ b
 /// - parameter containerTypes: list of containers
 /// - parameter block:          appearance code block
 public func appearance(inAny containerTypes: [UIAppearanceContainer.Type], _ block: () -> Void) {
-    containerTypes.forEach {
-        appearance(in: $0, block)
+    for container in containerTypes {
+        appearance(in: container, block)
     }
 }
 
@@ -138,8 +138,8 @@ public extension UIAppearance {
     /// - parameter block:          appearance code block for current container
     /// - parameter proxy:          appearance proxy to configure
     public static func appearance(inAny containerTypes: [UIAppearanceContainer.Type], _ block: (_ proxy: Self) -> Void) {
-        containerTypes.forEach {
-            appearance(in: $0, block)
+        for container in containerTypes {
+            appearance(in: container, block)
         }
     }
 }

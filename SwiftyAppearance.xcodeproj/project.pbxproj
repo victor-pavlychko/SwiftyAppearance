@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57296DC51EB8B4CD004E434C /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57296DC41EB8B4CD004E434C /* AppearanceView.swift */; };
+		57296DC51EB8B4CD004E434C /* AppearanceStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57296DC41EB8B4CD004E434C /* AppearanceStyleView.swift */; };
 		57296DC71EB8F327004E434C /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57296DC61EB8F327004E434C /* UIWindowExtensions.swift */; };
 		57296DC91EB8F334004E434C /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57296DC81EB8F334004E434C /* UIApplicationExtensions.swift */; };
 		57296DCB1EB8FB7B004E434C /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = 57296DCA1EB8FB7B004E434C /* .swift-version */; };
@@ -56,7 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		57296DC41EB8B4CD004E434C /* AppearanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceView.swift; sourceTree = "<group>"; };
+		57296DC41EB8B4CD004E434C /* AppearanceStyleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceStyleView.swift; sourceTree = "<group>"; };
 		57296DC61EB8F327004E434C /* UIWindowExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
 		57296DC81EB8F334004E434C /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		57296DCA1EB8FB7B004E434C /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				57FED37F1D8F3B48008DB72E /* AppearanceScope.swift */,
-				57296DC41EB8B4CD004E434C /* AppearanceView.swift */,
+				57296DC41EB8B4CD004E434C /* AppearanceStyleView.swift */,
 				57FED3801D8F3B48008DB72E /* UIAppearanceExtensions.swift */,
 				57296DC81EB8F334004E434C /* UIApplicationExtensions.swift */,
 				57296DC61EB8F327004E434C /* UIWindowExtensions.swift */,
@@ -316,7 +316,7 @@
 				57296DC91EB8F334004E434C /* UIApplicationExtensions.swift in Sources */,
 				57FED3811D8F3B48008DB72E /* AppearanceScope.swift in Sources */,
 				57296DC71EB8F327004E434C /* UIWindowExtensions.swift in Sources */,
-				57296DC51EB8B4CD004E434C /* AppearanceView.swift in Sources */,
+				57296DC51EB8B4CD004E434C /* AppearanceStyleView.swift in Sources */,
 				57FED3821D8F3B48008DB72E /* UIAppearanceExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
