@@ -70,48 +70,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-//        FirstNavigationController.appearance {
-//            UINavigationBar.appearance {
-//                $0.barStyle = .black
-//                $0.barTintColor = UIColor(rgb: 0x2980b9)
-//                $0.tintColor = UIColor(rgb: 0xecf0f1)
-//            }
-//        }
-//        
-//        FirstViewController.appearance {
-//            AppBackgroundView.appearance {
-//                $0.backgroundColor = UIColor(rgb: 0xecf0f1)
-//                $0.tintColor = UIColor(rgb: 0x34495e)
-//                UILabel.appearance {
-//                    $0.textColor = UIColor(rgb: 0x2c3e50)
-//                }
-//            }
-//            AlternateBackgroundView.appearance {
-//                $0.backgroundColor = UIColor(rgb: 0xf1c40f)
-//                $0.tintColor = UIColor(rgb: 0x34495e)
-//                UILabel.appearance {
-//                    $0.textColor = UIColor(rgb: 0xe67e22)
-//                }
-//            }
-//        }
-//
-//        SecondNavigationController.appearance {
-//            UINavigationBar.appearance {
-//                $0.barStyle = .`default`
-//                $0.barTintColor = UIColor(rgb: 0xf39c12)
-//                $0.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(rgb: 0xc0392b)]
-//            }
-//        }
-//
-//        SecondViewController.appearance {
-//            AppBackgroundView.appearance {
-//                $0.backgroundColor = UIColor(rgb: 0xf1c40f)
-//                UILabel.appearance {
-//                    $0.textColor = UIColor(rgb: 0xe67e22)
-//                }
-//            }
-//        }
-
         return true
     }
 

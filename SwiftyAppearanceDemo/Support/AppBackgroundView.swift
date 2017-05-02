@@ -9,5 +9,5 @@
 import UIKit
 import SwiftyAppearance
 
-class AppBackgroundView: AppearanceView { }
-class AlternateBackgroundView: AppearanceView { }
+class AppBackgroundView: AppearanceStyleView { }
+class AlternateBackgroundView: AppearanceStyleView { }

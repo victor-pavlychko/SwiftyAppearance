@@ -12,7 +12,7 @@ import SwiftyAppearance
 class FirstViewController: AppViewController {
     
     @IBAction func changeAppearance(sender: UISegmentedControl) {
-        guard let view = view as? AppearanceView else {
+        guard let view = view as? AppearanceStyleView else {
             return
         }
         switch sender.selectedSegmentIndex {
