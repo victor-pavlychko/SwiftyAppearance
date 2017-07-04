@@ -12,14 +12,14 @@ import SwiftyAppearance
 class FirstViewController: AppViewController {
     
     @IBAction func changeAppearance(sender: UISegmentedControl) {
-        guard let view = view as? AppearanceStyleView else {
+        guard let view = view as? AppBackgroundView else {
             return
         }
         switch sender.selectedSegmentIndex {
         case 0:
-            view.setStyle(AppBackgroundView.self, duration: 0.25)
+            view.setStyle(.default, animated: true)
         default:
-            view.setStyle(AlternateBackgroundView.self, duration: 0.25)
+            view.setStyle(.alternate, animated: true)
         }
     }
     

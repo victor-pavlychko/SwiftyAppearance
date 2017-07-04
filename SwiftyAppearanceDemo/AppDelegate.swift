@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
@@ -33,14 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     UIView.appearance {
                         FirstViewController.appearance {
-                            AppBackgroundView.appearance {
+                            AppBackgroundView.style(.default).appearance {
                                 $0.backgroundColor = UIColor(rgb: 0xecf0f1)
                                 $0.tintColor = UIColor(rgb: 0x34495e)
                                 UILabel.appearance {
                                     $0.textColor = UIColor(rgb: 0x2c3e50)
                                 }
                             }
-                            AlternateBackgroundView.appearance {
+                            AppBackgroundView.style(.alternate).appearance {
                                 $0.backgroundColor = UIColor(rgb: 0xf1c40f)
                                 $0.tintColor = UIColor(rgb: 0x34495e)
                                 UILabel.appearance {
