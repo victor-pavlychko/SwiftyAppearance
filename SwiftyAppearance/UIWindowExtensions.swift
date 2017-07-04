@@ -19,7 +19,7 @@ public extension NSNotification.Name {
 
 public extension UIWindow {
     
-    private func _refreshAppearance() {
+    @nonobjc private func _refreshAppearance() {
         let constraints = self.constraints
         removeConstraints(constraints)
         for subview in subviews {
@@ -28,23 +28,16 @@ public extension UIWindow {
         }
         addConstraints(constraints)
     }
-    
-    /// Reloads UIApperance of the window
-    public func refreshAppearance() {
+
+    /// <#Description#>
+    ///
+    /// - Parameter animated: <#animated description#>
+    public func refreshAppearance(animated: Bool) {
         NotificationCenter.default.post(name: .SwiftyAppearanceWillRefreshWindow, object: self)
-        _refreshAppearance()
-        NotificationCenter.default.post(name: .SwiftyAppearanceDidRefreshWindow, object: self)
-    }
-    
-    /// Reloads UIApperance of the window with animation
-    public func refreshAppearance(duration: TimeInterval) {
-        NotificationCenter.default.post(name: .SwiftyAppearanceWillRefreshWindow, object: self)
-        UIView.animate(withDuration: duration, animations: {
+        UIView.animate(withDuration: animated ? 0.25 : 0, animations: {
             self._refreshAppearance()
-        }, completion: { finished in
-            if finished {
-                NotificationCenter.default.post(name: .SwiftyAppearanceDidRefreshWindow, object: self)
-            }
+        }, completion: { _ in
+            NotificationCenter.default.post(name: .SwiftyAppearanceDidRefreshWindow, object: self)
         })
     }
 }

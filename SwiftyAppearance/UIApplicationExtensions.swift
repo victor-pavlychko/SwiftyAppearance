@@ -19,28 +19,21 @@ public extension NSNotification.Name {
 
 public extension UIApplication {
     
-    private func _refreshAppearance() {
+    @nonobjc private func _refreshAppearance(animated: Bool) {
         for window in windows {
-            window.refreshAppearance()
+            window.refreshAppearance(animated: animated)
         }
     }
-    
-    /// Reloads UIApperance of all windows in the application
-    public func refreshAppearance() {
+
+    /// <#Description#>
+    ///
+    /// - Parameter animated: <#animated description#>
+    public func refreshAppearance(animated: Bool) {
         NotificationCenter.default.post(name: .SwiftyAppearanceWillRefresh, object: self)
-        _refreshAppearance()
-        NotificationCenter.default.post(name: .SwiftyAppearanceDidRefresh, object: self)
-    }
-    
-    /// Reloads UIApperance of all windows in the application with animation
-    public func refreshAppearance(duration: TimeInterval) {
-        NotificationCenter.default.post(name: .SwiftyAppearanceWillRefresh, object: self)
-        UIView.animate(withDuration: duration, animations: {
-            self._refreshAppearance()
-        }, completion: { finished in
-            if finished {
-                NotificationCenter.default.post(name: .SwiftyAppearanceDidRefresh, object: self)
-            }
+        UIView.animate(withDuration: animated ? 0.25 : 0, animations: {
+            self._refreshAppearance(animated: animated)
+        }, completion: { _ in
+            NotificationCenter.default.post(name: .SwiftyAppearanceDidRefresh, object: self)
         })
     }
 }
