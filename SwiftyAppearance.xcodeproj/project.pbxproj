@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57296DC51EB8B4CD004E434C /* AppearanceStyleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57296DC41EB8B4CD004E434C /* AppearanceStyleable.swift */; };
+		571E483E204EA18E001D9FD9 /* AppearanceStyleHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571E483D204EA18E001D9FD9 /* AppearanceStyleHelpers.swift */; };
+		57296DC51EB8B4CD004E434C /* AppearanceStyleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57296DC41EB8B4CD004E434C /* AppearanceStyleExtensions.swift */; };
 		57296DC71EB8F327004E434C /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57296DC61EB8F327004E434C /* UIWindowExtensions.swift */; };
 		57296DCB1EB8FB7B004E434C /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = 57296DCA1EB8FB7B004E434C /* .swift-version */; };
 		57296DCD1EB8FB83004E434C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 57296DCC1EB8FB83004E434C /* .gitignore */; };
 		573B0E0E1F0A9BFF008609B1 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573B0E0D1F0A9BFF008609B1 /* UIApplicationExtensions.swift */; };
-		578708BB1F0ACF1100CDE319 /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578708BA1F0ACF1100CDE319 /* UITraitCollectionExtensions.swift */; };
+		5748E9F81F0D295200B3AC05 /* AppearanceStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5748E9F71F0D295200B3AC05 /* AppearanceStyle.swift */; };
 		57B3DEB91D8F3A6300699882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B3DEB81D8F3A6300699882 /* AppDelegate.swift */; };
 		57B3DEBB1D8F3A6300699882 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B3DEBA1D8F3A6300699882 /* FirstViewController.swift */; };
 		57B3DEBD1D8F3A6300699882 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B3DEBC1D8F3A6300699882 /* SecondViewController.swift */; };
@@ -57,12 +58,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		57296DC41EB8B4CD004E434C /* AppearanceStyleable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceStyleable.swift; sourceTree = "<group>"; };
+		571E483D204EA18E001D9FD9 /* AppearanceStyleHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceStyleHelpers.swift; sourceTree = "<group>"; };
+		57296DC41EB8B4CD004E434C /* AppearanceStyleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceStyleExtensions.swift; sourceTree = "<group>"; };
 		57296DC61EB8F327004E434C /* UIWindowExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
 		57296DCA1EB8FB7B004E434C /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		57296DCC1EB8FB83004E434C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		573B0E0D1F0A9BFF008609B1 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
-		578708BA1F0ACF1100CDE319 /* UITraitCollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITraitCollectionExtensions.swift; sourceTree = "<group>"; };
+		5748E9F71F0D295200B3AC05 /* AppearanceStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceStyle.swift; sourceTree = "<group>"; };
 		57900E0A1DEB5FDA0067EF81 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		57B3DEB51D8F3A6300699882 /* SwiftyAppearanceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyAppearanceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B3DEB81D8F3A6300699882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,9 +149,10 @@
 			isa = PBXGroup;
 			children = (
 				57FED37F1D8F3B48008DB72E /* AppearanceScope.swift */,
-				57296DC41EB8B4CD004E434C /* AppearanceStyleable.swift */,
+				5748E9F71F0D295200B3AC05 /* AppearanceStyle.swift */,
+				57296DC41EB8B4CD004E434C /* AppearanceStyleExtensions.swift */,
+				571E483D204EA18E001D9FD9 /* AppearanceStyleHelpers.swift */,
 				57FED3801D8F3B48008DB72E /* UIAppearanceExtensions.swift */,
-				578708BA1F0ACF1100CDE319 /* UITraitCollectionExtensions.swift */,
 				57296DC61EB8F327004E434C /* UIWindowExtensions.swift */,
 				573B0E0D1F0A9BFF008609B1 /* UIApplicationExtensions.swift */,
 				57FED3751D8F3A9F008DB72E /* Info.plist */,
@@ -239,16 +242,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = address.wtf;
 				TargetAttributes = {
 					57B3DEB41D8F3A6300699882 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					57FED3711D8F3A9F008DB72E = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -316,12 +320,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				571E483E204EA18E001D9FD9 /* AppearanceStyleHelpers.swift in Sources */,
 				57FED3811D8F3B48008DB72E /* AppearanceScope.swift in Sources */,
 				573B0E0E1F0A9BFF008609B1 /* UIApplicationExtensions.swift in Sources */,
-				578708BB1F0ACF1100CDE319 /* UITraitCollectionExtensions.swift in Sources */,
 				57296DC71EB8F327004E434C /* UIWindowExtensions.swift in Sources */,
-				57296DC51EB8B4CD004E434C /* AppearanceStyleable.swift in Sources */,
+				57296DC51EB8B4CD004E434C /* AppearanceStyleExtensions.swift in Sources */,
 				57FED3821D8F3B48008DB72E /* UIAppearanceExtensions.swift in Sources */,
+				5748E9F81F0D295200B3AC05 /* AppearanceStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +369,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -372,7 +379,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -402,6 +413,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -415,7 +427,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -423,7 +437,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -445,6 +463,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -460,7 +479,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wtf.address.SwiftyAppearanceDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -474,7 +492,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wtf.address.SwiftyAppearanceDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -496,7 +513,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -519,7 +535,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = wtf.address.SwiftyAppearance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

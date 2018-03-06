@@ -9,24 +9,11 @@
 import UIKit
 import SwiftyAppearance
 
-final class AppBackgroundView: UIView, AppearanceStyleable {
+extension AppearanceStyle {
+    static let `default` = AppearanceStyle("default")
+    static let alternate = AppearanceStyle("alternate")
+}
 
-    enum Style: String {
-        case `default`
-        case alternate
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        style = .default
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        style = .default
-    }
-    
-    override func willMove(toWindow newWindow: UIWindow?) {
-        super.willMove(toWindow: newWindow)
-    }
+class AppBackgroundView: UIView {
+
 }

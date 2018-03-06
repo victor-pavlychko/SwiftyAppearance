@@ -17,6 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        appearance { }
+        appearance(for: UITraitCollection()) { }
+        appearance(for: UITraitCollection(), in: [UIView.self]) { }
+        appearance(for: UITraitCollection(), inAny: [UIView.self]) { }
+        appearance(in: [UIView.self]) { }
+        appearance(inAny: [UIView.self]) { }
+
+        UIViewController.appearance { }
+        UIViewController.appearance(for: UITraitCollection()) { }
+
+        UIBarItem.appearance { _ in }
+        UIBarItem.appearance(for: UITraitCollection()) { _ in }
+
+        UIView.appearance { }
+        UIView.appearance(for: UITraitCollection()) { }
+
+        UIView.appearance { _ in }
+        UIView.appearance(for: UITraitCollection()) { _ in }
+
         AppTabBarController.appearance {
             UITabBar.appearance {
                 $0.barStyle = .black
@@ -32,14 +51,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     UIView.appearance {
                         FirstViewController.appearance {
-                            AppBackgroundView.style(.default).appearance {
+                            AppBackgroundView.appearance(style: .default) {
                                 $0.backgroundColor = UIColor(rgb: 0xecf0f1)
                                 $0.tintColor = UIColor(rgb: 0x34495e)
                                 UILabel.appearance {
                                     $0.textColor = UIColor(rgb: 0x2c3e50)
                                 }
                             }
-                            AppBackgroundView.style(.alternate).appearance {
+                            AppBackgroundView.appearance(style: .alternate) {
                                 $0.backgroundColor = UIColor(rgb: 0xf1c40f)
                                 $0.tintColor = UIColor(rgb: 0x34495e)
                                 UILabel.appearance {
@@ -51,9 +70,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 SecondNavigationController.appearance {
                     UINavigationBar.appearance {
-                        $0.barStyle = .`default`
+                        $0.barStyle = .default
                         $0.barTintColor = UIColor(rgb: 0xf39c12)
-                        $0.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(rgb: 0xc0392b)]
+                        $0.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor(rgb: 0xc0392b)]
                     }
                     UIView.appearance {
                         SecondViewController.appearance {

@@ -17,9 +17,9 @@ class FirstViewController: AppViewController {
         }
         switch sender.selectedSegmentIndex {
         case 0:
-            view.setStyle(.default, animated: true)
+            view.setAppearanceStyle(.default, animated: true)
         default:
-            view.setStyle(.alternate, animated: true)
+            view.setAppearanceStyle(.alternate, animated: true)
         }
     }
     
