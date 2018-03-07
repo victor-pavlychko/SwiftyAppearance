@@ -8,10 +8,11 @@
 
 import UIKit
 
-/// Nested appearance scope for specified trait collection
+/// Nested appearance scope for specified trait collection and container types
 ///
 /// - Parameters:
-///   - traits: trait collection
+///   - traitCollection: trait collection
+///   - containerTypes: list of container types
 ///   - block: appearance code block
 public func appearance(for traitCollection: UITraitCollection? = nil, in containerTypes: [UIAppearanceContainer.Type] = [], _ block: () -> Void) {
     AppearanceScope.main.push(traitCollection: traitCollection)
@@ -20,10 +21,11 @@ public func appearance(for traitCollection: UITraitCollection? = nil, in contain
     AppearanceScope.main.pop(count: 2)
 }
 
-/// Nested appearance scope for any of specified containers
+/// Nested appearance scope for specified trait collection any of specified containers
 ///
 /// - Parameters:
-///   - containerTypes: list of containers
+///   - traitCollection: trait collection
+///   - containerTypes: list of container types
 ///   - block: appearance code block
 public func appearance(for traitCollection: UITraitCollection? = nil, inAny containerTypes: [UIAppearanceContainer.Type], _ block: () -> Void) {
     AppearanceScope.main.push(traitCollection: traitCollection)
@@ -37,9 +39,12 @@ public func appearance(for traitCollection: UITraitCollection? = nil, inAny cont
 
 public extension UIAppearanceContainer {
     
-    /// Nested appearance scope for `Self` container
+    /// Nested appearance scope for `Self` container and trait collection
     ///
-    /// - Parameter block: appearance code block for current container
+    /// - Parameter
+    ///   - style: appearance style for this container
+    ///   - traitCollection: trait collection
+    ///   - block: appearance code block for current container
     public static func appearance(style: AppearanceStyle = nil, for traitCollection: UITraitCollection? = nil, _ block: () -> Void) {
         let cls = styleClass(self, styleName: style.name)
         AppearanceScope.main.push(traitCollection: traitCollection)
@@ -55,7 +60,8 @@ public extension UIAppearance {
     /// nested appearance scope for `Self` container with specified trait collection
     ///
     /// - Parameters:
-    ///   - traits: trait collections
+    ///   - style: appearance style for current class
+    ///   - traitCollection: trait collections
     ///   - block: appearance code block for current container
     ///   - proxy: appearance proxy to configure
     public static func appearance(style: AppearanceStyle = nil, for traitCollection: UITraitCollection? = nil, _ block: (_ proxy: Self) -> Void) {
@@ -80,7 +86,8 @@ public extension UIAppearance where Self: UIAppearanceContainer {
     /// nested appearance scope for `Self` container with specified trait collection
     ///
     /// - Parameters:
-    ///   - traits: trait collections
+    ///   - style: appearance style for current class
+    ///   - traitCollection: trait collections
     ///   - block: appearance code block for current container
     ///   - proxy: appearance proxy to configure
     public static func appearance(style: AppearanceStyle = nil, for traitCollection: UITraitCollection? = nil, _ block: (_ proxy: Self) -> Void) {

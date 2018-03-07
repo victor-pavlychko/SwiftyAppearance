@@ -10,10 +10,8 @@ import UIKit
 
 public extension NSNotification.Name {
     
-    /// <#Description#>
     public static let SwiftyAppearanceWillRefreshApplication = NSNotification.Name(rawValue: "SwiftyAppearanceWillRefreshApplicationNotification")
     
-    /// <#Description#>
     public static let SwiftyAppearanceDidRefreshApplication = NSNotification.Name(rawValue: "SwiftyAppearanceDidRefreshApplicationNotification")
 }
 
@@ -25,9 +23,9 @@ public extension UIApplication {
         }
     }
 
-    /// <#Description#>
+    /// Refreshes appearance for all windows in the application
     ///
-    /// - Parameter animated: <#animated description#>
+    /// - Parameter animated: if the refresh should be animated
     public func refreshAppearance(animated: Bool) {
         NotificationCenter.default.post(name: .SwiftyAppearanceWillRefreshApplication, object: self)
         UIView.animate(withDuration: animated ? 0.25 : 0, animations: {

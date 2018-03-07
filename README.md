@@ -103,32 +103,27 @@ provide proxy object to configure its properties.
 
 ### Free Functions
 
-* `func appearance(for traits: UITraitCollection, _ block: () -> Void)` — adds traits from the collection to the scope
-* `func appearance(in containerType: UIAppearanceContainer.Type, _ block: () -> Void)` — adds nested container to the scope
-* `func appearance(inChain containerTypes: [UIAppearanceContainer.Type], _ block: () -> Void)` — adds chain of nested containers to the scope
-* `func appearance(inAny containerTypes: [UIAppearanceContainer.Type], _ block: () -> Void)` — defines a set of nested scopes for each provided container
+* `func appearance(for traitCollection: UITraitCollection? = nil, in containerTypes: [UIAppearanceContainer.Type] = [], _ block: () -> Void)` — adds traits and containers from the collection to the scope
+* `func appearance(for traitCollection: UITraitCollection? = nil, inAny containerTypes: [UIAppearanceContainer.Type], _ block: () -> Void)` — adds traits and defines a set of nested scopes for each provided container
 
-### UIAppearanceContainer Extensions
+### UIAppearance  and UIAppearanceContainer Extensions
 
-* `static func appearance(_ block: () -> Void)` — adds nested container to the scope, this is equivalent to one of free functions
-
-### UIAppearance Extensions
-
-This group of functions first extends scopes similar to what free functions do, then provides appearance proxy for `Self` class and finally defines
-new scope adding `Self` as a container when applicable.
-
-* `static func appearance(_ block: (_ proxy: Self) -> Void)` — provides appearance proxy for class, then adds current class as a container 
+* `static func UIAppearanceContainer.appearance(style: AppearanceStyle = nil, for traitCollection: UITraitCollection? = nil, _ block: () -> Void)` — adds nested container to the scope optionally specifying style
+* `static func UIAppearance.appearance(style: AppearanceStyle = nil, for traitCollection: UITraitCollection? = nil, _ block: (_ proxy: Self) -> Void)` — adds traits from the collection to the scope, provides appearance proxy for class with an optional style class, then adds current class as a container
     if applicable
-* `static func appearance(for traits: UITraitCollection, _ block: (_ proxy: Self) -> Void)` — adds traits from the collection to the scope,
-    provides appearance proxy for class, then adds current class as a container if applicable
-* `static func appearance(in containerType: UIAppearanceContainer.Type, _ block: (_ proxy: Self) -> Void)` — adds nested container to the scope,
-    provides appearance proxy for class, then adds current class as a container if applicable
-* `static func appearance(inChain containerTypes: [UIAppearanceContainer.Type], _ block: (_ proxy: Self) -> Void)` — adds chain of nested
-    containers to the scope, provides appearance proxy for class, then adds current class as a container if applicable
-* `static func appearance(inAny containerTypes: [UIAppearanceContainer.Type], _ block: (_ proxy: Self) -> Void)` — defines a set of nested scopes
-    for each provided container, provides appearance proxy for class, then adds current class as a container if applicable
 
-## Installation 
+### UIWindow and UIApplication Extensions
+
+* `func UIWindow.refreshAppearance(animated: Bool)` — refreshes appearance for the window
+* `func UIApplication.refreshAppearance(animated: Bool)` — refreshes appearance for all windows in the application
+
+### UIView and UIViewController Extensions
+
+* `@IBInspectable public var appearanceStyleName: String` — inspectable property to set appearance style from Interface Builder
+* `var appearanceStyle: AppearanceStyle` — appearance style accessor
+* `func setAppearanceStyle(_ style: AppearanceStyle, animated: Bool)` — sets appearance style optionally animating the update
+
+## Installation
 
 ### CocoaPods
 

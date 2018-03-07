@@ -153,8 +153,8 @@
 				57296DC41EB8B4CD004E434C /* AppearanceStyleExtensions.swift */,
 				571E483D204EA18E001D9FD9 /* AppearanceStyleHelpers.swift */,
 				57FED3801D8F3B48008DB72E /* UIAppearanceExtensions.swift */,
-				57296DC61EB8F327004E434C /* UIWindowExtensions.swift */,
 				573B0E0D1F0A9BFF008609B1 /* UIApplicationExtensions.swift */,
+				57296DC61EB8F327004E434C /* UIWindowExtensions.swift */,
 				57FED3751D8F3A9F008DB72E /* Info.plist */,
 			);
 			path = SwiftyAppearance;
