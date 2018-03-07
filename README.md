@@ -3,7 +3,7 @@
 [![Pod Version](https://img.shields.io/cocoapods/v/SwiftyAppearance.svg?style=flat)](http://cocoapods.org/pods/SwiftyAppearance)
 [![Carthage: compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License: MIT](https://img.shields.io/badge/license-MIT-3b3b3b.svg?style=flat)](https://github.com/victor-pavlychko/SwiftyAppearance/blob/master/LICENSE)
-[![Swift: 3.0](https://img.shields.io/badge/swift-3.0-orange.svg?style=flat)](https://github.com/victor-pavlychko/SwiftyAppearance)
+[![Swift: 4.0](https://img.shields.io/badge/swift-4.0-orange.svg?style=flat)](https://github.com/victor-pavlychko/SwiftyAppearance)
 [![Platform: iOS](https://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://github.com/victor-pavlychko/SwiftyAppearance)
 
 `UIAppearance` allows to configure global application look and feel in a single centralized location instead of
